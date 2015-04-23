@@ -19,13 +19,13 @@ gulp.task('build-browser', [], function() {
   return gulp.src('index.js')
     .pipe(plugins.webpack({
       output: {
-        library: 'StellarWallet'
+        library: 'PaysharesWallet'
       }
     }))
-    .pipe(plugins.rename('stellar-wallet.js'))
+    .pipe(plugins.rename('payshares-wallet.js'))
     .pipe(gulp.dest('build'))
     .pipe(plugins.uglify())
-    .pipe(plugins.rename('stellar-wallet.min.js'))
+    .pipe(plugins.rename('payshares-wallet.min.js'))
     .pipe(gulp.dest('build'));
 });
 

@@ -1,9 +1,9 @@
 {
-  "name": "stellar-wallet-js-sdk",
+  "name": "payshares-wallet-js-sdk",
   "version": "0.0.0",
   "private": false,
   "keywords": [
-    "stellar"
+    "payshares"
   ],
   "dependencies": {
     "bs58": "~2.0.0",
@@ -11,9 +11,9 @@
     "camel-case": "~1.0.2",
     "lodash": "~2.4.1",
     "ripemd160": "~0.2.0",
-    "sjcl": "git+https://github.com/stellar/sjcl.git",
-    "sjcl-scrypt": "git+https://github.com/stellar/sjcl-scrypt.git",
-    "stellar-lib": "0.9.6",
+    "sjcl": "git+https://github.com/payshares/sjcl.git",
+    "sjcl-scrypt": "git+https://github.com/payshares/sjcl-scrypt.git",
+    "payshares-lib": "0.9.6",
     "superagent": "~0.20.0",
     "thirty-two": "~0.0.2",
     "tweetnacl": "^0.11.2"
@@ -49,7 +49,7 @@
   },
   "repository": {
     "type" : "git",
-    "url" : "https://github.com/stellar/stellar-wallet-js-sdk"
+    "url" : "https://github.com/payshares/payshares-wallet-js-sdk"
   },
   "config": {
     "ghooks": {

@@ -1,4 +1,4 @@
-var StellarWallet =
+var PaysharesWallet =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -638,10 +638,10 @@ var StellarWallet =
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// We're using stellar-lib's Seed to generate address and keypair in keypair.js.
+	// We're using payshares-lib's Seed to generate address and keypair in keypair.js.
 	// However, for some legacy browsers we need to add some entropy to sjcl using
 	// crypto.ensureEntropy method. Rather then doing this for both instances
-	// (stellar-wallet-js-sdk & stellar-lib) let's switch to stellar-lib's sjcl.
+	// (payshares-wallet-js-sdk & payshares-lib) let's switch to payshares-lib's sjcl.
 	var sjcl = __webpack_require__(35).sjcl;
 	__webpack_require__(33).extendSjcl(sjcl);
 
@@ -7998,7 +7998,7 @@ var StellarWallet =
 	    return Promise.resolve(params);
 	  }
 
-	  // Fetching kdfParams from stellar-wallet server
+	  // Fetching kdfParams from payshares-wallet server
 	  var resolver = Promise.pending();
 	  request
 	    .get(params.server+'/kdf_params')
@@ -8093,8 +8093,8 @@ var StellarWallet =
 	      'keychainData',
 	      'keychainDataHash',
 	      'kdfParams',
-	      // Hack for stellar-wallet run by SDF to allow transition from V1 wallet
-	      // https://github.com/stellar/stellar-wallet/issues/34
+	      // Hack for payshares-wallet run by SDF to allow transition from V1 wallet
+	      // https://github.com/payshares/payshares-wallet/issues/34
 	      'usernameProof'
 	    ]))
 	    .end(function(err, res) {
@@ -8319,7 +8319,7 @@ var StellarWallet =
 	    .then(validate.number("lockVersion"));
 	}
 
-	// stellar-wallet server accepts base64 encoded keys. Users provide base32 encoded keys.
+	// payshares-wallet server accepts base64 encoded keys. Users provide base32 encoded keys.
 	function transformTotpKey(params) {
 	  params.totpKey = base32.decode(params.totpKey);
 	  params.totpKey = params.totpKey.toString('base64');

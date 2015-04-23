@@ -1,34 +1,34 @@
-stellar-wallet-js-sdk
+payshares-wallet-js-sdk
 =====================
 
-[![Build Status](https://travis-ci.org/stellar/stellar-wallet-js-sdk.svg?branch=master)](https://travis-ci.org/stellar/stellar-wallet-js-sdk) [![Coverage Status](https://coveralls.io/repos/stellar/stellar-wallet-js-sdk/badge.png?branch=master)](https://coveralls.io/r/stellar/stellar-wallet-js-sdk?branch=master)
+[![Build Status](https://travis-ci.org/payshares/payshares-wallet-js-sdk.svg?branch=master)](https://travis-ci.org/payshares/payshares-wallet-js-sdk) [![Coverage Status](https://coveralls.io/repos/payshares/payshares-wallet-js-sdk/badge.png?branch=master)](https://coveralls.io/r/payshares/payshares-wallet-js-sdk?branch=master)
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/bartekn.svg)](https://saucelabs.com/u/bartekn)
 
 ### Usage in a browser
 ```html
 Normal version:
-<script src="/build/stellar-wallet.js"></script>
+<script src="/build/payshares-wallet.js"></script>
 Minified version:
-<script src="/build/stellar-wallet.min.js"></script>
+<script src="/build/payshares-wallet.min.js"></script>
 ```
 
 ### Usage in Node
 ```js
-var StellarWallet = require('stellar-wallet-js-sdk');
+var PaysharesWallet = require('payshares-wallet-js-sdk');
 ```
 
 ### API
 
 #### `createWallet`
 
-Creates a wallet and uploads it to [stellar-wallet](https://github.com/stellar/stellar-wallet) server.
+Creates a wallet and uploads it to [payshares-wallet](https://github.com/payshares/payshares-wallet) server.
 This method returns [`Wallet` object](#wallet-object).
 
 > **Heads up!** Choose `kdfParams` carefully - it may affect performance.
 
 ```js
-StellarWallet.createWallet({
+PaysharesWallet.createWallet({
   // Required
   server: "https://wallet-server.com",
   // Required
@@ -41,7 +41,7 @@ StellarWallet.createWallet({
   mainData: "Your main data.",
   // keychainData: must be a string. If you want to send JSON stringify it.
   keychainData: "Your keychain data.",
-  // If omitted, it will be fetched from stellar-wallet server
+  // If omitted, it will be fetched from payshares-wallet server
   kdfParams: { 
     algorithm: 'scrypt',
     bits: 256,
@@ -51,28 +51,28 @@ StellarWallet.createWallet({
   }
 }).then(function(wallet) {
   // wallet is Wallet object
-}).catch(StellarWallet.errors.MissingField, function(e) {
+}).catch(PaysharesWallet.errors.MissingField, function(e) {
   console.error('Missing field: '+e.field+'.');
-}).catch(StellarWallet.errors.InvalidField, function(e) {
+}).catch(PaysharesWallet.errors.InvalidField, function(e) {
   console.error('Invalid field.');
-}).catch(StellarWallet.errors.UsernameAlreadyTaken, function(e) {
+}).catch(PaysharesWallet.errors.UsernameAlreadyTaken, function(e) {
   console.error('Username has been already taken.');
-}).catch(StellarWallet.errors.ConnectionError, function(e) {
+}).catch(PaysharesWallet.errors.ConnectionError, function(e) {
   console.log('Connection error.');
 }).catch(function(e) {
   console.log('Unknown error.');
 });
 ```
 
-To generate a keypair you can use: `StellarWallet.util.generateKeyPair()`.
+To generate a keypair you can use: `PaysharesWallet.util.generateKeyPair()`.
 
 #### `getWallet`
 
-Retrieves a wallet from [stellar-wallet](https://github.com/stellar/stellar-wallet) server.
+Retrieves a wallet from [payshares-wallet](https://github.com/payshares/payshares-wallet) server.
 This method returns [`Wallet` object](#wallet-object).
 
 ```js
-StellarWallet.getWallet({
+PaysharesWallet.getWallet({
   // Required
   server: "https://wallet-server.com",
   // Required
@@ -81,15 +81,15 @@ StellarWallet.getWallet({
   password: "cat-walking-on-keyboard"
 }).then(function(wallet) {
   // wallet is Wallet object
-}).catch(StellarWallet.errors.WalletNotFound, function(e) {
+}).catch(PaysharesWallet.errors.WalletNotFound, function(e) {
   console.error('Wallet not found.');
-}).catch(StellarWallet.errors.Forbidden, function(e) {
+}).catch(PaysharesWallet.errors.Forbidden, function(e) {
   console.error('Forbidden access.');
-}).catch(StellarWallet.errors.TotpCodeRequired, function(e) {
+}).catch(PaysharesWallet.errors.TotpCodeRequired, function(e) {
   console.error('Totp code required.');
-}).catch(StellarWallet.errors.MissingField, function(e) {
+}).catch(PaysharesWallet.errors.MissingField, function(e) {
   console.error('Missing field: '+e.field+'.');
-}).catch(StellarWallet.errors.ConnectionError, function(e) {
+}).catch(PaysharesWallet.errors.ConnectionError, function(e) {
   console.log('Connection error.');
 }).catch(function(e) {
   console.log('Unknown error.');
@@ -99,7 +99,7 @@ StellarWallet.getWallet({
 You can also get wallet using `masterKey`. It's helpful during recovery process:
 
 ```js
-StellarWallet.getWallet({
+PaysharesWallet.getWallet({
   // Required
   server: "https://wallet-server.com",
   // Required
@@ -108,15 +108,15 @@ StellarWallet.getWallet({
   masterKey: "masterKey"
 }).then(function(wallet) {
   // wallet is Wallet object
-}).catch(StellarWallet.errors.WalletNotFound, function(e) {
+}).catch(PaysharesWallet.errors.WalletNotFound, function(e) {
   console.error('Wallet not found.');
-}).catch(StellarWallet.errors.Forbidden, function(e) {
+}).catch(PaysharesWallet.errors.Forbidden, function(e) {
   console.error('Forbidden access.');
-}).catch(StellarWallet.errors.TotpCodeRequired, function(e) {
+}).catch(PaysharesWallet.errors.TotpCodeRequired, function(e) {
   console.error('Totp code required.');
-}).catch(StellarWallet.errors.MissingField, function(e) {
+}).catch(PaysharesWallet.errors.MissingField, function(e) {
   console.error('Missing field: '+e.field+'.');
-}).catch(StellarWallet.errors.ConnectionError, function(e) {
+}).catch(PaysharesWallet.errors.ConnectionError, function(e) {
   console.log('Connection error.');
 }).catch(function(e) {
   console.log('Unknown error.');
@@ -135,7 +135,7 @@ must be first [enabled](#enablerecovery).
 If TOTP is enabled additional `totpCode` parameter must be passed.
 
 ```js
-StellarWallet.recover({
+PaysharesWallet.recover({
   // Required
   server: "https://wallet-server.com",
   // Required
@@ -145,11 +145,11 @@ StellarWallet.recover({
 }).then(function(masterKey) {
   // masterKey is recovered wallet masterKey.
   // You can create Wallet object using getWallet method.
-}).catch(StellarWallet.errors.Forbidden, function(e) {
+}).catch(PaysharesWallet.errors.Forbidden, function(e) {
   console.error('Forbidden access.');
-}).catch(StellarWallet.errors.MissingField, function(e) {
+}).catch(PaysharesWallet.errors.MissingField, function(e) {
   console.error('Missing field: '+e.field+'.');
-}).catch(StellarWallet.errors.ConnectionError, function(e) {
+}).catch(PaysharesWallet.errors.ConnectionError, function(e) {
   console.log('Connection error.');
 }).catch(function(e) {
   console.log('Unknown error.');
@@ -158,11 +158,11 @@ StellarWallet.recover({
 
 #### `lostTotpDevice`
 
-When user lost TOTP device, grace period request may be sent to stellar-wallet
+When user lost TOTP device, grace period request may be sent to payshares-wallet
 server to disable 2FA.
 
 ```js
-StellarWallet.lostTotpDevice({
+PaysharesWallet.lostTotpDevice({
   // Required
   server: "https://wallet-server.com",
   // Required
@@ -170,11 +170,11 @@ StellarWallet.lostTotpDevice({
   // Required
   password: "password"
 }).then(function() {
-  // Request was sent. Due to security reasons stellar-wallet won't inform you
+  // Request was sent. Due to security reasons payshares-wallet won't inform you
   // whether grace period has been started or not.
-}).catch(StellarWallet.errors.MissingField, function(e) {
+}).catch(PaysharesWallet.errors.MissingField, function(e) {
   console.error('Missing field: '+e.field+'.');
-}).catch(StellarWallet.errors.ConnectionError, function(e) {
+}).catch(PaysharesWallet.errors.ConnectionError, function(e) {
   console.log('Connection error.');
 }).catch(function(e) {
   console.log('Unknown error.');
@@ -188,7 +188,7 @@ has following methods:
 
 #### `getServer`
 
-Returns stellar-wallet server URL.
+Returns payshares-wallet server URL.
 
 #### `getUsername`
 
@@ -208,7 +208,7 @@ var mainData = wallet.getMainData();
 
 #### `updateMainData`
 
-Updates `mainData` on the stellar-wallet server.
+Updates `mainData` on the payshares-wallet server.
 
 ```js
 wallet.updateMainData({
@@ -216,9 +216,9 @@ wallet.updateMainData({
   secretKey: keyPair.secretKey
 }).then(function() {
   // Main data updated
-}).catch(StellarWallet.errors.MissingField, function(e) {
+}).catch(PaysharesWallet.errors.MissingField, function(e) {
   console.error('Missing field: '+e.field+'.');
-}).catch(StellarWallet.errors.ConnectionError, function(e) {
+}).catch(PaysharesWallet.errors.ConnectionError, function(e) {
   console.log('Connection error.');
 }).catch(function(e) {
   console.log('Unknown error.');
@@ -232,12 +232,12 @@ Returns `keychainData` string.
 #### `enableTotp`
 
 Enables TOTP to user's wallet. To generate `totpKey` you can use:
-`StellarWallet.util.generateTotpKey()`. `totpCode` is a current code generated
+`PaysharesWallet.util.generateTotpKey()`. `totpCode` is a current code generated
 by user's TOTP app. It's role is to confirm a user has succesfully setup
 TOTP generator.
 
 ```js
-var totpKey = StellarWallet.util.generateTotpKey();
+var totpKey = PaysharesWallet.util.generateTotpKey();
 
 wallet.enableTotp({
   totpKey: totpKey,
@@ -245,11 +245,11 @@ wallet.enableTotp({
   secretKey: keyPair.secretKey
 }).then(function() {
   // Everything went fine
-}).catch(StellarWallet.errors.MissingField, function(e) {
+}).catch(PaysharesWallet.errors.MissingField, function(e) {
   console.error('Missing field: '+e.field+'.');
-}).catch(StellarWallet.errors.InvalidTotpCode, function(e) {
+}).catch(PaysharesWallet.errors.InvalidTotpCode, function(e) {
   console.error('Invalid Totp code.');
-}).catch(StellarWallet.errors.ConnectionError, function(e) {
+}).catch(PaysharesWallet.errors.ConnectionError, function(e) {
   console.log('Connection error.');
 }).catch(function(e) {
   console.log('Unknown error.');
@@ -266,11 +266,11 @@ wallet.disableTotp({
   secretKey: keyPair.secretKey
 }).then(function() {
   // Everything went fine
-}).catch(StellarWallet.errors.MissingField, function(e) {
+}).catch(PaysharesWallet.errors.MissingField, function(e) {
   console.error('Missing field: '+e.field+'.');
-}).catch(StellarWallet.errors.InvalidTotpCode, function(e) {
+}).catch(PaysharesWallet.errors.InvalidTotpCode, function(e) {
   console.error('Invalid Totp code.');
-}).catch(StellarWallet.errors.ConnectionError, function(e) {
+}).catch(PaysharesWallet.errors.ConnectionError, function(e) {
   console.log('Connection error.');
 }).catch(function(e) {
   console.log('Unknown error.');
@@ -280,19 +280,19 @@ wallet.disableTotp({
 #### `enableRecovery`
 
 Enables recovery to user's wallet. To generate `recoveryCode` you can use:
-`StellarWallet.util.generateRandomRecoveryCode()`.
+`PaysharesWallet.util.generateRandomRecoveryCode()`.
 
 ```js
-var recoveryCode = StellarWallet.util.generateRandomRecoveryCode();
+var recoveryCode = PaysharesWallet.util.generateRandomRecoveryCode();
 
 wallet.enableRecovery({
   recoveryCode: recoveryCode,
   secretKey: keyPair.secretKey
 }).then(function() {
   // Everything went fine
-}).catch(StellarWallet.errors.MissingField, function(e) {
+}).catch(PaysharesWallet.errors.MissingField, function(e) {
   console.error('Missing field: '+e.field+'.');
-}).catch(StellarWallet.errors.ConnectionError, function(e) {
+}).catch(PaysharesWallet.errors.ConnectionError, function(e) {
   console.log('Connection error.');
 }).catch(function(e) {
   console.log('Unknown error.');
@@ -314,9 +314,9 @@ wallet.enableRecovery({
   secretKey: keyPair.secretKey
 }).then(function() {
   // Everything went fine
-}).catch(StellarWallet.errors.MissingField, function(e) {
+}).catch(PaysharesWallet.errors.MissingField, function(e) {
   console.error('Missing field: '+e.field+'.');
-}).catch(StellarWallet.errors.ConnectionError, function(e) {
+}).catch(PaysharesWallet.errors.ConnectionError, function(e) {
   console.log('Connection error.');
 }).catch(function(e) {
   console.log('Unknown error.');
@@ -324,11 +324,11 @@ wallet.enableRecovery({
 ```
 
 You can pass additional parameter: `kdfParams`. If it's not passed `kdfParams`
-will be fetched from stellar-wallet server.
+will be fetched from payshares-wallet server.
 
 #### `delete`
 
-Removes wallet from stellar-wallet server.
+Removes wallet from payshares-wallet server.
 
 > **Heads up!** This method removes all wallet data from the server! This
 > operation cannot be undone.
@@ -338,7 +338,7 @@ wallet.delete({
   secretKey: keyPair.secretKey
 }).then(function() {
   // Everything went... well... fine
-}).catch(StellarWallet.errors.ConnectionError, function(e) {
+}).catch(PaysharesWallet.errors.ConnectionError, function(e) {
   console.log('Connection error.');
 }).catch(function(e) {
   console.log('Unknown error.');
@@ -357,12 +357,12 @@ Generates Totp uri based on user's key. You can encode it as a QR code and show 
 a user.
 
 ```js
-var key = StellarWallet.util.generateTotpKey();
-var uri = StellarWallet.util.generateTotpUri(key, {
+var key = PaysharesWallet.util.generateTotpKey();
+var uri = PaysharesWallet.util.generateTotpUri(key, {
   // Your organization name
-  issuer: 'Stellar Development Foundation',
+  issuer: 'Payshares Development Foundation',
   // Account name
-  accountName: 'bob@stellar.org'
+  accountName: 'bob@payshares.org'
 });
 ```
 

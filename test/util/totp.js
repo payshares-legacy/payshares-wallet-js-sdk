@@ -17,10 +17,10 @@ describe('util/totp', function () {
 
   it('should generate otpauth uri', function (done) {
     var key = totp.generateRandomTotpKey();
-    var expected = 'otpauth://totp/Stellar%20Development%20Foundation:bob@stellar.org?secret='+key+'&issuer=Stellar%20Development%20Foundation';
+    var expected = 'otpauth://totp/Payshares%20Development%20Foundation:bob@payshares.org?secret='+key+'&issuer=Payshares%20Development%20Foundation';
     var uri = totp.generateTotpUri(key, {
-      issuer: 'Stellar Development Foundation',
-      accountName: 'bob@stellar.org'
+      issuer: 'Payshares Development Foundation',
+      accountName: 'bob@payshares.org'
     });
     expect(uri).to.be.equal(expected);
     done();
@@ -34,10 +34,10 @@ describe('util/totp', function () {
       };
     };
     expect(fn({
-      issuer: 'Stellar Development Foundation'
+      issuer: 'Payshares Development Foundation'
     })).to.throw(errors.MissingField);
     expect(fn({
-      accountName: 'bob@stellar.org'
+      accountName: 'bob@payshares.org'
     })).to.throw(errors.MissingField);
     done();
   });

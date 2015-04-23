@@ -6,7 +6,7 @@ var errors = require('../../lib/errors');
 chai.should();
 var nacl = require('tweetnacl');
 var validate = require('../../lib/util/validate.js');
-var StellarWallet = require('../../index.js');
+var PaysharesWallet = require('../../index.js');
 
 chai.use(chaiAsPromised);
 
@@ -18,7 +18,7 @@ describe('util/validate', function () {
   });
 
   it('keyPair', function (done) {
-    var keyPair = StellarWallet.util.generateKeyPair();
+    var keyPair = PaysharesWallet.util.generateKeyPair();
     keyPair.publicKey = nacl.util.decodeBase64(keyPair.publicKey);
     keyPair.publicKey[0] = (++keyPair.publicKey[0]) % 256; // Change first bit
     keyPair.publicKey = nacl.util.encodeBase64(keyPair.publicKey);
