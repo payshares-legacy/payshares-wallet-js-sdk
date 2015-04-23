@@ -13,7 +13,7 @@
     "ripemd160": "~0.2.0",
     "sjcl": "git+https://github.com/payshares/sjcl.git",
     "sjcl-scrypt": "git+https://github.com/payshares/sjcl-scrypt.git",
-    "payshares-lib": "0.9.6",
+    "payshares-lib": "git+https://github.com/payshares/payshares-lib.git#master",
     "superagent": "~0.20.0",
     "thirty-two": "~0.0.2",
     "tweetnacl": "^0.11.2"
