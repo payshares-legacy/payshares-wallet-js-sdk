@@ -1,7 +1,7 @@
 payshares-wallet-js-sdk
 =====================
 
-[![Build Status](https://travis-ci.org/Payshares/payshares-wallet-js-sdk.svg?branch=master)](https://travis-ci.org/Payshares/payshares-wallet-js-sdk) [![Coverage Status](https://coveralls.io/repos/payshares/payshares-wallet-js-sdk/badge.png?branch=master)](https://coveralls.io/r/payshares/payshares-wallet-js-sdk?branch=master)
+[![Build Status](https://travis-ci.org/Payshares/payshares-wallet-js-sdk.svg?branch=master)](https://travis-ci.org/Payshares/payshares-wallet-js-sdk) [![Coverage Status](https://coveralls.io/repos/Payshares/payshares-wallet-js-sdk/badge.png?branch=master)](https://coveralls.io/r/Payshares/payshares-wallet-js-sdk?branch=master)
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/bartekn.svg)](https://saucelabs.com/u/bartekn)
 
