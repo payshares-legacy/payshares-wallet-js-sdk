@@ -13987,15 +13987,25 @@ var PaysharesWallet =
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function(module) {
+
 		if(!module.webpackPolyfill) {
+
 			module.deprecate = function() {};
+
 			module.paths = [];
+
 			// module.parent = undefined by default
+
 			module.children = [];
+
 			module.webpackPolyfill = 1;
+
 		}
+
 		return module;
+
 	}
+
 
 
 /***/ },
@@ -18555,14 +18565,14 @@ var PaysharesWallet =
 	  switch (j) {
 	    case undefined:
 	      case '0':
-	      case this.constructor.XPR_ZERO:
+	      case this.constructor.XPS_ZERO:
 	      case this.constructor.ACCOUNT_ZERO:
 	      case this.constructor.HEX_ZERO:
 	      this._value  = BigInteger.valueOf();
 	      break;
 
 	    case '1':
-	      case this.constructor.XPR_ONE:
+	      case this.constructor.XPS_ONE:
 	      case this.constructor.ACCOUNT_ONE:
 	      case this.constructor.HEX_ONE:
 	      this._value  = new BigInteger([1]);
@@ -18735,8 +18745,8 @@ var PaysharesWallet =
 
 	var HEX_ZERO = UInt256.HEX_ZERO = '00000000000000000000000000000000' + '00000000000000000000000000000000';
 	var HEX_ONE  = UInt256.HEX_ONE  = '00000000000000000000000000000000' + '00000000000000000000000000000001';
-	var XPR_ZERO = UInt256.XPR_ZERO = utils.hexToString(HEX_ZERO);
-	var XPR_ONE  = UInt256.XPR_ONE  = utils.hexToString(HEX_ONE);
+	var XPS_ZERO = UInt256.XPS_ZERO = utils.hexToString(HEX_ZERO);
+	var XPS_ONE  = UInt256.XPS_ONE  = utils.hexToString(HEX_ONE);
 
 	exports.UInt256 = UInt256;
 
@@ -18773,8 +18783,8 @@ var PaysharesWallet =
 	var ACCOUNT_ONE  = UInt160.ACCOUNT_ONE  = 'xxxxxxxxxxxxxxxxxxxxBZbvji';
 	var HEX_ZERO     = UInt160.HEX_ZERO     = '0000000000000000000000000000000000000000';
 	var HEX_ONE      = UInt160.HEX_ONE      = '0000000000000000000000000000000000000001';
-	var XPR_ZERO     = UInt160.XPR_ZERO     = utils.hexToString(HEX_ZERO);
-	var XPR_ONE      = UInt160.XPR_ONE      = utils.hexToString(HEX_ONE);
+	var XPS_ZERO     = UInt160.XPS_ZERO     = utils.hexToString(HEX_ZERO);
+	var XPS_ONE      = UInt160.XPS_ONE      = utils.hexToString(HEX_ONE);
 
 	UInt160.prototype.set_version = function(j) {
 	  this._version_byte = j;
