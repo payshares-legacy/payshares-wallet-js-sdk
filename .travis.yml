@@ -8,3 +8,5 @@ script:
   - zuul test/wallet.js && npm run-script coverage
 after_success:
   - gulp submit-coverage
+notifications:
+  email: false
